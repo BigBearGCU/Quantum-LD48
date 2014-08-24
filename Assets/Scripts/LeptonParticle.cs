@@ -32,4 +32,8 @@ public class LeptonParticle : MonoBehaviour,FundamentalParticle{
     {
         collider.enabled = false;
     }
+
+    public void Apply()
+    {
+    }
 }

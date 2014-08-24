@@ -8,14 +8,23 @@ using System.Collections.Generic;
 public class QuantumBehaviour : MonoBehaviour
 {
     public LeptonParticle lepton;
+    public List<QuarkParticle> quarks = new List<QuarkParticle>();
     // Use this for initialization
     void Start()
     {
         lepton = GetComponent<LeptonParticle>();
+        QuarkParticle p = new QuarkParticle();
+        p.owner = gameObject;
+        quarks.Add(p);
     }
 
     // Update is called once per frame
     void Update()
     {
+        lepton.Apply();
+        foreach(QuarkParticle q in quarks)
+        {
+            q.Apply();
+        }
     }
 }
