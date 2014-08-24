@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class LeptonParticle : MonoBehaviour,FundamentalParticle{
+public class LeptonParticle : FundamentalParticleBehaviour
+{
 
 	// Use this for initialization
 	void Start () {
@@ -13,27 +14,17 @@ public class LeptonParticle : MonoBehaviour,FundamentalParticle{
 	
 	}
 
-    public void OnEnable()
-    {
-        Enable();
-    }
-
-    public void OnDisable()
-    {
-        Disable();
-    }
-
-    public void Enable()
+    public override void Enable()
     {
         collider.enabled = true;
     }
 
-    public void Disable()
+    public override void Disable()
     {
         collider.enabled = false;
     }
 
-    public void Apply()
+    public override void Apply()
     {
     }
 }

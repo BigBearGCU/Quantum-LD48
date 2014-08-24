@@ -1,0 +1,173 @@
+fileFormatVersion: 2
+guid: c29e0f944dce2b14e96dc48f4253370b
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BottomLeftPos
+    100002: BottomNeutron
+    100004: BottomRightPos
+    100006: centreNeutron
+    100008: Electron002
+    100010: Electron002Path
+    100012: Electron003
+    100014: Electron1
+    100016: ElectronPath003
+    100018: ElectronPath2
+    100020: //RootNode
+    100022: TopLeftNeuton
+    100024: topPos
+    100026: TopRightNeutron
+    400000: BottomLeftPos
+    400002: BottomNeutron
+    400004: BottomRightPos
+    400006: centreNeutron
+    400008: Electron002
+    400010: Electron002Path
+    400012: Electron003
+    400014: Electron1
+    400016: ElectronPath003
+    400018: ElectronPath2
+    400020: //RootNode
+    400022: TopLeftNeuton
+    400024: topPos
+    400026: TopRightNeutron
+    2300000: BottomLeftPos
+    2300002: BottomNeutron
+    2300004: BottomRightPos
+    2300006: centreNeutron
+    2300008: Electron002
+    2300010: Electron003
+    2300012: Electron1
+    2300014: TopLeftNeuton
+    2300016: topPos
+    2300018: TopRightNeutron
+    3300000: BottomLeftPos
+    3300002: BottomNeutron
+    3300004: BottomRightPos
+    3300006: centreNeutron
+    3300008: Electron002
+    3300010: Electron003
+    3300012: Electron1
+    3300014: TopLeftNeuton
+    3300016: topPos
+    3300018: TopRightNeutron
+    4300000: centreNeutron
+    4300002: BottomNeutron
+    4300004: TopRightNeutron
+    4300006: TopLeftNeuton
+    4300008: BottomLeftPos
+    4300010: BottomRightPos
+    4300012: topPos
+    4300014: Electron1
+    4300016: Electron002
+    4300018: Electron003
+    7400000: Take 001
+    9500000: //RootNode
+    11100000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 2
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 1
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: BottomLeftPos
+        weight: 1
+      - path: BottomNeutron
+        weight: 1
+      - path: BottomRightPos
+        weight: 1
+      - path: centreNeutron
+        weight: 1
+      - path: Electron1
+        weight: 1
+      - path: Electron002
+        weight: 1
+      - path: Electron002Path
+        weight: 1
+      - path: Electron003
+        weight: 1
+      - path: ElectronPath2
+        weight: 1
+      - path: ElectronPath003
+        weight: 1
+      - path: TopLeftNeuton
+        weight: 1
+      - path: topPos
+        weight: 1
+      - path: TopRightNeutron
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  additionalBone: 0
+  userData: 

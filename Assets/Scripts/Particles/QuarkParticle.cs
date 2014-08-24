@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class QuarkParticle : MonoBehaviour,FundamentalParticle
+public class QuarkParticle : FundamentalParticleBehaviour
 {
 
     public float range = 10.0f;
@@ -19,23 +19,7 @@ public class QuarkParticle : MonoBehaviour,FundamentalParticle
 
     }
 
-
-    public void OnEnable()
-    {
-        Enable();
-    }
-
-    public void OnDisable()
-    {
-        Disable();
-    }
-
-    public void Enable()
-    {
-        
-    }
-
-    public void Disable()
+    public override void Disable()
     {
         GameObject[] attractables = GameObject.FindGameObjectsWithTag("Attractable");
         foreach(GameObject o in attractables)
@@ -45,7 +29,7 @@ public class QuarkParticle : MonoBehaviour,FundamentalParticle
     }
 
 
-    public void Apply()
+    public override void Apply()
     {
         if (enabled)
         {

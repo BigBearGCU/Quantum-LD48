@@ -3,9 +3,10 @@ using System.Collections;
 
 public class ExitScript : MonoBehaviour {
 
+    public GameObject levelManager;
 	// Use this for initialization
 	void Start () {
-	
+        levelManager = GameObject.Find("LevelManager");
 	}
 	
 	// Update is called once per frame
@@ -17,8 +18,7 @@ public class ExitScript : MonoBehaviour {
     {
         if (c.tag=="Player")
         {
-            //Send Message to Level Manager
-            Application.LoadLevel(0);
+            levelManager.SendMessage("EndOfLevel", SendMessageOptions.DontRequireReceiver);
         }
     }
 }
