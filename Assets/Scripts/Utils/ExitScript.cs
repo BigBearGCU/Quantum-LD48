@@ -14,11 +14,14 @@ public class ExitScript : MonoBehaviour {
 	
 	}
 
-    void OnTriggerStay(Collider c)
+    void OnTriggerEnter(Collider c)
     {
         if (c.tag=="Player")
         {
-            levelManager.SendMessage("EndOfLevel", SendMessageOptions.DontRequireReceiver);
+            if (levelManager != null)
+                levelManager.SendMessage("EndOfLevel", SendMessageOptions.DontRequireReceiver);
+            else
+                Application.LoadLevel(0);
         }
     }
 }

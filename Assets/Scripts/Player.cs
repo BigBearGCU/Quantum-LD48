@@ -13,6 +13,8 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rigidbody.angularVelocity = Vector3.back * Speed*Input.GetAxis("Horizontal");
+        float direction = Input.GetAxis("Horizontal");
+        mainAnimation["Take 001"].speed = direction*-1;
+        rigidbody.angularVelocity = Vector3.back * Speed * direction;
 	}
 }

@@ -42,6 +42,7 @@ public class NucleonParticle : FundamentalParticleBehaviour {
 
     public override void Apply()
     {
-        transform.localScale = new Vector3(currentBalanceValue,currentBalanceValue,currentBalanceValue);
+        if (enabled)
+            transform.localScale = new Vector3(currentBalanceValue,currentBalanceValue,currentBalanceValue);
     }
 }

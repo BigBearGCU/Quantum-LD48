@@ -18,6 +18,15 @@ public class QuantumBehaviour : MonoBehaviour
     public NucleonParticle nucleon;
     public List<FundamentalParticleBehaviour> particles = new List<FundamentalParticleBehaviour>();
 
+    public enum ParticleType
+    {
+        Nucleon,
+        Quark,
+        Lepton,
+        Photon,
+        Higgs
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -37,6 +46,38 @@ public class QuantumBehaviour : MonoBehaviour
         nucleon.enabled = false;
 
         particles.AddRange(GetComponents<FundamentalParticleBehaviour>());
+    }
+
+    public void ToggleParticle(ParticleType pType)
+    {
+        switch (pType)
+        {
+            case ParticleType.Nucleon:
+                {
+                    nucleon.enabled = !nucleon.enabled;
+                    break;
+                }
+            case ParticleType.Quark:
+                {
+                    quark.enabled = !quark.enabled;
+                    break;
+                }
+            case ParticleType.Lepton:
+                {
+                    lepton.enabled = !lepton.enabled;
+                    break;
+                }
+            case ParticleType.Higgs:
+                {
+                    higgs.enabled = !higgs.enabled;
+                    break;
+                }
+            case ParticleType.Photon:
+                {
+                    photon.enabled = !photon.enabled;
+                    break;
+                }
+        }
     }
 
     // Update is called once per frame

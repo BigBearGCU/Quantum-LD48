@@ -22,13 +22,14 @@ public class LevelManager : MonoBehaviour {
     void EndOfLevel()
     {
         currentLevel++;
-        if (currentLevel<levels.Count)
-            LoadLevel();
+        Debug.Log("Current level is "+currentLevel.ToString());
+        if (currentLevel>=levels.Count){
+            currentLevel = 0;
+            Application.LoadLevel(startLevelName);
+        }
         else
         {
-            currentLevel = 0;
-            //do camera fade
-            Application.LoadLevel(startLevelName);
+            LoadLevel();
         }
     }
 
@@ -40,7 +41,16 @@ public class LevelManager : MonoBehaviour {
 
     void LoadLevel()
     {
-        //do camera fade then load level
+        Debug.Log("Load Level");
+        iTween.CameraFadeAdd();
+        iTween.CameraFadeTo(1.0f, 0.5f);
+        iTween.CameraFadeFrom(iTween.Hash("delay", 0.4f, "amount", 0.0f, "time", 0.5f, "oncomplete", "ActualLoadLevel", "oncompletetarget",gameObject));
+    }
+
+    void ActualLoadLevel()
+    {
+        //Complete load level
+        Debug.Log("Complete Loading Level "+currentLevel.ToString());
         Application.LoadLevel(levels[currentLevel]);
     }
 
