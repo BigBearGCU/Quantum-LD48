@@ -5,26 +5,29 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 [RequireComponent(typeof(LeptonParticle))]
+[RequireComponent(typeof(QuarkParticle))]
 public class QuantumBehaviour : MonoBehaviour
 {
     public LeptonParticle lepton;
-    public List<QuarkParticle> quarks = new List<QuarkParticle>();
+    public QuarkParticle quark;
     // Use this for initialization
     void Start()
     {
         lepton = GetComponent<LeptonParticle>();
-        QuarkParticle p = new QuarkParticle();
-        p.owner = gameObject;
-        quarks.Add(p);
+        quark= GetComponent<QuarkParticle>();
+
+        //lepton.Disable();
+        quark.Disable();
+
+        lepton.enabled = true;
+        quark.enabled = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         lepton.Apply();
-        foreach(QuarkParticle q in quarks)
-        {
-            q.Apply();
-        }
+        quark.Apply();
     }
 }
