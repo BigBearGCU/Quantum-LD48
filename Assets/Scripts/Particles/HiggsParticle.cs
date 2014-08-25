@@ -17,6 +17,7 @@ public class HiggsParticle : FundamentalParticleBehaviour
 	
 	}
 
+
     public override void Disable()
     {
         rigidbody.mass = orginalMass;

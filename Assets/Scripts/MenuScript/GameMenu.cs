@@ -4,9 +4,13 @@ using System.Collections;
 public class GameMenu : MonoBehaviour {
 
     public GameObject player;
+    private QuantumBehaviour quantumPowers;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        //set button state
+        quantumPowers = player.GetComponent<QuantumBehaviour>();
+
 	}
 	
 	// Update is called once per frame

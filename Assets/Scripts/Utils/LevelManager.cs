@@ -5,13 +5,19 @@ public class LevelManager : MonoBehaviour {
 
 	// Use this for initialization
     public List<string> levels=new List<string>();
+    public List<int> scores = new List<int>();
     public int currentLevel = 0;
 
     public string startLevelName="MainMenu";
     public string optionsLevelName = "Options";
+    GameObject cameraFade;
 
 	void Start () {
         DontDestroyOnLoad(gameObject);
+        cameraFade= iTween.CameraFadeAdd();
+        DontDestroyOnLoad(cameraFade);
+        scores.Clear();
+
 	}
 	
 	// Update is called once per frame
@@ -19,13 +25,14 @@ public class LevelManager : MonoBehaviour {
 	
 	}
 
-    void EndOfLevel()
+    void EndOfLevel(int attempts)
     {
         currentLevel++;
+        scores.Add(attempts);
         Debug.Log("Current level is "+currentLevel.ToString());
         if (currentLevel>=levels.Count){
             currentLevel = 0;
-            Application.LoadLevel(startLevelName);
+            LoadLevel(startLevelName);
         }
         else
         {
@@ -39,19 +46,25 @@ public class LevelManager : MonoBehaviour {
         LoadLevel();
     }
 
+
+    void LoadLevel(string name)
+    {
+        Application.LoadLevel(name);
+    }
     void LoadLevel()
     {
         Debug.Log("Load Level");
-        iTween.CameraFadeAdd();
-        iTween.CameraFadeTo(1.0f, 0.5f);
-        iTween.CameraFadeFrom(iTween.Hash("delay", 0.4f, "amount", 0.0f, "time", 0.5f, "oncomplete", "ActualLoadLevel", "oncompletetarget",gameObject));
+        LoadLevel(levels[currentLevel]);
+        //iTween.CameraFadeTo(1.0f, 1.0f);
+        //iTween.CameraFadeFrom(iTween.Hash("delay", 0.9f, "amount", 0.0f, "time", 0.4f, "oncomplete", "ActualLoadLevel", "oncompletetarget",gameObject));
+        
     }
 
     void ActualLoadLevel()
     {
         //Complete load level
         Debug.Log("Complete Loading Level "+currentLevel.ToString());
-        Application.LoadLevel(levels[currentLevel]);
+        
     }
 
 }

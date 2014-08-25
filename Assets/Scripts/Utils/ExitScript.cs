@@ -4,6 +4,8 @@ using System.Collections;
 public class ExitScript : MonoBehaviour {
 
     public GameObject levelManager;
+    public float levelLoadCountDown = 0.4f;
+    int attempts;
 	// Use this for initialization
 	void Start () {
         levelManager = GameObject.Find("LevelManager");
@@ -18,10 +20,17 @@ public class ExitScript : MonoBehaviour {
     {
         if (c.tag=="Player")
         {
-            if (levelManager != null)
-                levelManager.SendMessage("EndOfLevel", SendMessageOptions.DontRequireReceiver);
-            else
-                Application.LoadLevel(0);
+            attempts = c.gameObject.GetComponent<Player>().levelAttempts;
+            StartCoroutine(DoExit());
         }
+    }
+
+    IEnumerator DoExit()
+    {
+        yield return new WaitForSeconds(levelLoadCountDown);
+        if (levelManager != null)
+            levelManager.SendMessage("EndOfLevel", attempts,SendMessageOptions.DontRequireReceiver);
+        else
+            Application.LoadLevel(0);
     }
 }

@@ -9,7 +9,7 @@ public class MainMenuScript : MonoBehaviour {
         levelManager = GameObject.Find("LevelManager");
 #if UNITY_WEBPLAYER
         GameObject exitButton=GameObject.Find("ExitButton");
-        exitButton.enabled=false;
+        exitButton.collider.enabled=false;
 #endif
                   }
 	

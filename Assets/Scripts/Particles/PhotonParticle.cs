@@ -17,6 +17,7 @@ public class PhotonParticle : FundamentalParticleBehaviour
         
 	}
 
+
     public override void Apply()
     {
         Ray groundRay = new Ray(transform.position, Vector3.down);

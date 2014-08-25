@@ -11,6 +11,7 @@ public interface FundamentalParticle {
 
 public class FundamentalParticleBehaviour: MonoBehaviour,FundamentalParticle
 {
+    public AudioClip sound;
 
     public void OnEnable()
     {

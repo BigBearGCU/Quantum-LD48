@@ -27,6 +27,14 @@ public class QuantumBehaviour : MonoBehaviour
         Higgs
     }
 
+    void SetInitialState()
+    {
+        lepton.enabled = true;
+        quark.enabled = false;
+        higgs.enabled = false;
+        photon.enabled = false;
+        nucleon.enabled = false;
+    }
     // Use this for initialization
     void Start()
     {
@@ -35,49 +43,48 @@ public class QuantumBehaviour : MonoBehaviour
         higgs = GetComponent<HiggsParticle>();
         photon = GetComponent<PhotonParticle>();
         nucleon = GetComponent<NucleonParticle>();
-
-        //lepton.Disable();
-        quark.Disable();
-
-        lepton.enabled = true;
-        quark.enabled = false;
-        higgs.enabled = false ;
-        photon.enabled = false;
-        nucleon.enabled = false;
-
         particles.AddRange(GetComponents<FundamentalParticleBehaviour>());
+        SetInitialState();
     }
 
     public void ToggleParticle(ParticleType pType)
     {
+        FundamentalParticleBehaviour currentParticle = null;
         switch (pType)
         {
             case ParticleType.Nucleon:
                 {
                     nucleon.enabled = !nucleon.enabled;
+                    currentParticle = nucleon;
                     break;
                 }
             case ParticleType.Quark:
                 {
                     quark.enabled = !quark.enabled;
+                    currentParticle = quark;
                     break;
                 }
             case ParticleType.Lepton:
                 {
                     lepton.enabled = !lepton.enabled;
+                    currentParticle = lepton;
                     break;
                 }
             case ParticleType.Higgs:
                 {
                     higgs.enabled = !higgs.enabled;
+                    currentParticle = higgs;
                     break;
                 }
             case ParticleType.Photon:
                 {
                     photon.enabled = !photon.enabled;
+                    currentParticle = photon;
                     break;
                 }
         }
+        if (currentParticle!=null)
+            audio.PlayOneShot(currentParticle.sound);
     }
 
     // Update is called once per frame
