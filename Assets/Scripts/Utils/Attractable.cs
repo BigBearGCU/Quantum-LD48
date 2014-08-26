@@ -15,6 +15,14 @@ public class Attractable : MonoBehaviour {
 
     void Captured(bool hasBeenCaptured)
     {
-        rigidbody.useGravity = !hasBeenCaptured;
+        //rigidbody.useGravity = !hasBeenCaptured;
+    }
+
+    void OnEnterCollision(Collider c)
+    {
+        if (c.tag=="Ground")
+        {
+            iTween.Stop();
+        }
     }
 }

@@ -18,6 +18,10 @@ public class QuantumBehaviour : MonoBehaviour
     public NucleonParticle nucleon;
     public List<FundamentalParticleBehaviour> particles = new List<FundamentalParticleBehaviour>();
 
+    public bool leptonEnabled = false;
+    public bool quarkEnabled = false;
+    public bool higgsEnabled = false;
+    public bool photonEnabled = false;
     public enum ParticleType
     {
         Nucleon,
@@ -93,6 +97,22 @@ public class QuantumBehaviour : MonoBehaviour
         foreach(FundamentalParticleBehaviour particle in particles)
         {
             particle.Apply();
+        }
+        if (Input.GetButtonDown("Lepton") && leptonEnabled)
+        {
+            ToggleParticle(ParticleType.Lepton);
+        }
+        if (Input.GetButtonDown("Photon") && photonEnabled)
+        {
+            ToggleParticle(ParticleType.Photon);
+        }
+        if (Input.GetButtonDown("Higgs") && higgsEnabled)
+        {
+            ToggleParticle(ParticleType.Higgs);
+        }
+        if (Input.GetButtonDown("Quark") && quarkEnabled)
+        {
+            ToggleParticle(ParticleType.Quark);
         }
     }
 }
