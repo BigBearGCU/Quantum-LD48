@@ -33,7 +33,7 @@ public class QuantumBehaviour : MonoBehaviour
 
     void SetInitialState()
     {
-        lepton.enabled = true;
+        lepton.enabled = false;
         quark.enabled = false;
         higgs.enabled = false;
         photon.enabled = false;

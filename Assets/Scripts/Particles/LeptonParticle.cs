@@ -16,12 +16,12 @@ public class LeptonParticle : FundamentalParticleBehaviour
 
     public override void Enable()
     {
-        collider.enabled = true;
+        collider.enabled = false;
     }
 
     public override void Disable()
     {
-        collider.enabled = false;
+        collider.enabled = true ;
     }
 
     public override void Apply()
