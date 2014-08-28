@@ -63,30 +63,35 @@ public class QuantumBehaviour : MonoBehaviour
                 {
                     nucleon.enabled = !nucleon.enabled;
                     currentParticle = nucleon;
+
                     break;
                 }
             case ParticleType.Quark:
                 {
                     quark.enabled = !quark.enabled;
                     currentParticle = quark;
+                    GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Quark", enable = quark.enabled }, SendMessageOptions.DontRequireReceiver);
                     break;
                 }
             case ParticleType.Lepton:
                 {
                     lepton.enabled = !lepton.enabled;
                     currentParticle = lepton;
+                    GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Lepton", enable = lepton.enabled }, SendMessageOptions.DontRequireReceiver);
                     break;
                 }
             case ParticleType.Higgs:
                 {
                     higgs.enabled = !higgs.enabled;
                     currentParticle = higgs;
+                    GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Higgs", enable = higgs.enabled }, SendMessageOptions.DontRequireReceiver);
                     break;
                 }
             case ParticleType.Photon:
                 {
                     photon.enabled = !photon.enabled;
                     currentParticle = photon;
+                    GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Photon", enable = photon.enabled }, SendMessageOptions.DontRequireReceiver);
                     break;
                 }
         }
@@ -102,23 +107,19 @@ public class QuantumBehaviour : MonoBehaviour
             particle.Apply();
         }
         if (Input.GetButtonDown("Lepton") && leptonEnabled)
-        {
-            GameUI.SendMessage("EnableButton", "Lepton",SendMessageOptions.DontRequireReceiver);
+        {  
             ToggleParticle(ParticleType.Lepton);
         }
         if (Input.GetButtonDown("Photon") && photonEnabled)
         {
-            GameUI.SendMessage("EnableButton", "Photon", SendMessageOptions.DontRequireReceiver);
             ToggleParticle(ParticleType.Photon);
         }
         if (Input.GetButtonDown("Higgs") && higgsEnabled)
         {
-            GameUI.SendMessage("EnableButton", "Higgs", SendMessageOptions.DontRequireReceiver);
             ToggleParticle(ParticleType.Higgs);
         }
         if (Input.GetButtonDown("Quark") && quarkEnabled)
-        {
-            GameUI.SendMessage("EnableButton", "Quark", SendMessageOptions.DontRequireReceiver);
+        {   
             ToggleParticle(ParticleType.Quark);
         }
     }

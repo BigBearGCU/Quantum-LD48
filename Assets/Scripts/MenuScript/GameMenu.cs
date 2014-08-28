@@ -4,6 +4,12 @@ using System.Collections.Generic;
 using System;
 public class GameMenu : MonoBehaviour {
 
+    public struct ButtonToggle
+    {
+        public string name;
+        public bool enable;
+    }
+
     public GameObject player;
     public UIAtlas keyboard;
     public UIAtlas xbox360Joypad;
@@ -70,14 +76,17 @@ public class GameMenu : MonoBehaviour {
         }
     }
 
-    public void EnableButton(string name)
+    public void EnableButton(ButtonToggle toggle)
     {
-        SetButtonState(name + "Button", UIButtonColor.State.Pressed, true);
+        if (toggle.enable)
+            SetButtonState(toggle.name + "Button", UIButtonColor.State.Pressed, toggle.enable);
+        else
+            SetButtonState(toggle.name + "Button", UIButtonColor.State.Normal, toggle.enable);
     }
 
     public void DisableButton(string name)
     {
-        SetButtonState(name + "Button", UIButtonColor.State.Normal, true);
+        
     }
 
     public void OnNucleonButtonDown()
