@@ -17,6 +17,7 @@ public class QuantumBehaviour : MonoBehaviour
     public PhotonParticle photon;
     public NucleonParticle nucleon;
     public List<FundamentalParticleBehaviour> particles = new List<FundamentalParticleBehaviour>();
+    public GameObject GameUI;
 
     public bool leptonEnabled = false;
     public bool quarkEnabled = false;
@@ -48,6 +49,8 @@ public class QuantumBehaviour : MonoBehaviour
         photon = GetComponent<PhotonParticle>();
         nucleon = GetComponent<NucleonParticle>();
         particles.AddRange(GetComponents<FundamentalParticleBehaviour>());
+
+        GameUI = GameObject.Find("GameUI");
         SetInitialState();
     }
 
@@ -100,18 +103,22 @@ public class QuantumBehaviour : MonoBehaviour
         }
         if (Input.GetButtonDown("Lepton") && leptonEnabled)
         {
+            GameUI.SendMessage("EnableButton", "Lepton",SendMessageOptions.DontRequireReceiver);
             ToggleParticle(ParticleType.Lepton);
         }
         if (Input.GetButtonDown("Photon") && photonEnabled)
         {
+            GameUI.SendMessage("EnableButton", "Photon", SendMessageOptions.DontRequireReceiver);
             ToggleParticle(ParticleType.Photon);
         }
         if (Input.GetButtonDown("Higgs") && higgsEnabled)
         {
+            GameUI.SendMessage("EnableButton", "Higgs", SendMessageOptions.DontRequireReceiver);
             ToggleParticle(ParticleType.Higgs);
         }
         if (Input.GetButtonDown("Quark") && quarkEnabled)
         {
+            GameUI.SendMessage("EnableButton", "Quark", SendMessageOptions.DontRequireReceiver);
             ToggleParticle(ParticleType.Quark);
         }
     }

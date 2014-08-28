@@ -10,18 +10,46 @@ public class GameMenu : MonoBehaviour {
     public UIAtlas PS3Joypad;
 
     public List<GameObject> uiHints;
-
     private QuantumBehaviour quantumPowers;
-    
+    private GameObject buttonRoot;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
+        buttonRoot = transform.FindChild("Panel").gameObject;
         //set button state
         quantumPowers = player.GetComponent<QuantumBehaviour>();
+        SetUIStates();
         //Get user Prefs for joypad
         ChangeUIHints();
 	}
 	
+    void SetButtonState(string buttonName,UIButtonColor.State colourState,bool enabled)
+    {
+        GameObject obj = buttonRoot.transform.FindChild(buttonName).gameObject;
+        obj.collider.enabled = true;
+        UIButton button = obj.GetComponent<UIButton>();
+        button.state = colourState;
+    }
+    void SetUIStates()
+    {
+        if (quantumPowers.leptonEnabled)
+        {
+            SetButtonState("LeptonButton",UIButtonColor.State.Normal,true);
+        }
+        if (quantumPowers.photonEnabled)
+        {
+            SetButtonState("PhotonButton", UIButtonColor.State.Normal, true);
+        }
+        if (quantumPowers.quarkEnabled)
+        {
+            SetButtonState("QuarkButton", UIButtonColor.State.Normal, true);
+        }
+        if (quantumPowers.higgsEnabled)
+        {
+            SetButtonState("HiggsButton", UIButtonColor.State.Normal, true);
+        }
+    }
+
 	// Update is called once per frame
 	void Update () 
     {
@@ -40,6 +68,16 @@ public class GameMenu : MonoBehaviour {
                 s.atlas = xbox360Joypad;
             }
         }
+    }
+
+    public void EnableButton(string name)
+    {
+        SetButtonState(name + "Button", UIButtonColor.State.Pressed, true);
+    }
+
+    public void DisableButton(string name)
+    {
+        SetButtonState(name + "Button", UIButtonColor.State.Normal, true);
     }
 
     public void OnNucleonButtonDown()
