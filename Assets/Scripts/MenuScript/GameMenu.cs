@@ -16,7 +16,6 @@ public class GameMenu : MonoBehaviour {
     public UIAtlas PS3Joypad;
 
     public List<GameObject> uiHints;
-    public List<ButtonState> buttonStates;
     private QuantumBehaviour quantumPowers;
     private GameObject buttonRoot;
 

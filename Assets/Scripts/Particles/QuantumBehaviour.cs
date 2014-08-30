@@ -40,13 +40,14 @@ public class QuantumBehaviour : MonoBehaviour
         photon.enabled = false;
         nucleon.enabled = false;
 
-        GameUI.SendMessage("ResetButtons", SendMessageOptions.DontRequireReceiver);
+        GameUI.SendMessage("SetUIStates", SendMessageOptions.DontRequireReceiver);
         
         //GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Quark", enable = quark.enabled }, SendMessageOptions.DontRequireReceiver);
         //GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Lepton", enable = lepton.enabled }, SendMessageOptions.DontRequireReceiver);
         //GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Higgs", enable = higgs.enabled }, SendMessageOptions.DontRequireReceiver);
         //GameUI.SendMessage("EnableButton", new GameMenu.ButtonToggle { name = "Photon", enable = photon.enabled }, SendMessageOptions.DontRequireReceiver);
     }
+
     // Use this for initialization
     void Start()
     {
