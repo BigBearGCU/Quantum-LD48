@@ -16,23 +16,29 @@ public class GameMenu : MonoBehaviour {
     public UIAtlas PS3Joypad;
 
     public List<GameObject> uiHints;
+    public List<ButtonState> buttonStates;
     private QuantumBehaviour quantumPowers;
     private GameObject buttonRoot;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player");
         buttonRoot = transform.FindChild("Panel").gameObject;
+
         //set button state
         quantumPowers = player.GetComponent<QuantumBehaviour>();
+
         SetUIStates();
         //Get user Prefs for joypad
         ChangeUIHints();
 	}
+
+
 	
     void SetButtonState(string buttonName,UIButtonColor.State colourState,bool enabled)
     {
         GameObject obj = buttonRoot.transform.FindChild(buttonName).gameObject;
-        obj.collider.enabled = true;
+        obj.collider.enabled = enabled;
         UIButton button = obj.GetComponent<UIButton>();
         button.state = colourState;
     }
@@ -54,6 +60,8 @@ public class GameMenu : MonoBehaviour {
         {
             SetButtonState("HiggsButton", UIButtonColor.State.Normal, true);
         }
+
+
     }
 
 	// Update is called once per frame
