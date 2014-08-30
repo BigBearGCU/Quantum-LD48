@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Text;
+using System;
 
 public class ScoreGUIScript : MonoBehaviour {
 
@@ -22,6 +23,21 @@ public class ScoreGUIScript : MonoBehaviour {
 	        //Grab Level Manager
             scoreLbl.text = sb.ToString();
         }
+        bool joyPad = Convert.ToBoolean(PlayerPrefs.GetInt("usejoypad"));
+        if (joyPad)
+        {
+            GameObject restartButton = GameObject.Find("RestartButton");
+            UIKeyNavigation nav = restartButton.GetComponent<UIKeyNavigation>();
+            nav.startsSelected = true;
+            nav.enabled = true;
+
+            GameObject exitButon = GameObject.Find("ExitButton");
+            nav = restartButton.GetComponent<UIKeyNavigation>();
+            nav.enabled = true;
+        }
+#if UNITY_WEBPLAYER
+        DisableExitButton();
+#endif
 	}
 	
 	// Update is called once per frame
@@ -41,5 +57,13 @@ public class ScoreGUIScript : MonoBehaviour {
     public void OnExitButton()
     {
         Application.Quit();
+    }
+
+    public void DisableExitButton()
+    {
+        GameObject exitButton = GameObject.Find("ExitButton");
+        UIButton button = exitButton.GetComponent<UIButton>();
+        button.state = UIButton.State.Disabled;
+        exitButton.collider.enabled = false;
     }
 }
