@@ -7,19 +7,18 @@ public class MainMenuScript : MonoBehaviour {
     GameObject levelManager;
     List<GameObject> Buttons=new List<GameObject>();
     bool joypadControlsEnabled = false;
-    GameObject prompt;
     Vector2 lastMousePos=Vector2.zero;
 
     public UISprite promptSprite;
 
     public UIAtlas xbox360Atlas;
     public UIAtlas ps3Atlas;
+    public GameObject prompt;
 
 	// Use this for initialization
 	void Start () {
         //Grab and cache all buttons
         Transform buttonPanel=transform.FindChild("ButtonPanel");
-        prompt = transform.Find("Prompt").gameObject;
         prompt.SetActive(false);
         for (int i = 0; i < buttonPanel.childCount; ++i)
         {

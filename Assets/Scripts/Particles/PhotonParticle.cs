@@ -10,8 +10,10 @@ public class PhotonParticle : FundamentalParticleBehaviour
 
 	// Use this for initialization
 	void Start () {
-
-	}
+#if UNITY_PSM
+        repulseAmount*=0.5f;
+#endif
+                  }
 	
 	// Update is called once per frame
 	void Update () {
