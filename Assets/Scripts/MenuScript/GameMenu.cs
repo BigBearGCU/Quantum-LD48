@@ -78,7 +78,11 @@ public class GameMenu : MonoBehaviour {
             foreach(GameObject go in uiHints)
             {
                 s = go.GetComponent<UISprite>();
+#if UNITY_PSM
+                s.atlas = PS3Joypad;
+#else
                 s.atlas = xbox360Joypad;
+#endif
             }
         }
     }

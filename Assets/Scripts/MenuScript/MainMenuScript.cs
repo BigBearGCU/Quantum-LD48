@@ -9,6 +9,12 @@ public class MainMenuScript : MonoBehaviour {
     bool joypadControlsEnabled = false;
     GameObject prompt;
     Vector2 lastMousePos=Vector2.zero;
+
+    public UISprite promptSprite;
+
+    public UIAtlas xbox360Atlas;
+    public UIAtlas ps3Atlas;
+
 	// Use this for initialization
 	void Start () {
         //Grab and cache all buttons
@@ -23,7 +29,18 @@ public class MainMenuScript : MonoBehaviour {
 #if UNITY_WEBPLAYER
         DisableExitButton();
 #endif
+
+#if UNITY_PSM
+        PlayerPrefs.SetInt("usejoypad", 1);
+        SwitchAtlas(ps3Atlas);
+        prompt.SetActive(true);
+#endif
                   }
+
+    void SwitchAtlas(UIAtlas atlas)
+    {
+        promptSprite.atlas = atlas;
+    }
 
     void ToggleJoypadControls(bool toggle)
     {
